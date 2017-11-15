@@ -6,4 +6,4 @@ Module.*
 *o.cmd
 *.ko.cmd
 .tmp_versions/
-
+*/gen/
