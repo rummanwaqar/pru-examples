@@ -1,0 +1,23 @@
+.origin 0
+.entrypoint START
+
+#define INS_PER_US 200
+#define INS_PER_DELAY_LOOP 2
+
+#define DELAY 50 * 1000 * (INS_PER_US / INS_PER_DELAY_LOOP)
+#define PRU0_R31_VEC_VALID 32
+#define PRU_EVTOUT_0 3
+
+START:
+		SET r30.t7
+		MOV r0, DELAY
+DELAYON:
+		SUB r0, r0, 1
+		QBNE DELAYON, r0, 0
+LEDOFF:
+		CLR r30.t7
+		MOV r0, DELAY
+DELAYOFF:
+		SUB r0, r0, 1
+		QBNE DELAYOFF, r0, 0
+		JMP START
