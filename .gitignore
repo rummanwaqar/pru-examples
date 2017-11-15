@@ -7,3 +7,4 @@ Module.*
 *.ko.cmd
 .tmp_versions/
 */gen/
+*/*/gen/
